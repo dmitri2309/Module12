@@ -41,35 +41,46 @@ class Tournament:
                     place += 1
                     self.participants.remove(participant)
         return finishers
-# runner1 = Runner("Usain", speed=10)
-# runner2 = Runner("Andry", speed=9)
-# runner3 = Runner("Nik", speed=3)
-
-
-# race = Tournament(5, runner1, runner2, runner3)
-# print(race.start())
 
 class TournamentTest(unittest.TestCase):
+
+    def __repr__(self):
+        return self.name
 
     @classmethod
     def setUpClass(cls):
         cls.all_results = {}
 
     def setUp(self):
-        runner1 = Runner("Usain", speed=10)
-        runner2 = Runner("Andry", speed=9)
-        runner3 = Runner("Nik", speed=3)
+        self.run1 = Runner("Usain", speed=10)
+        self.run2 = Runner("Andry", speed=9)
+        self.run3 = Runner("Nik", speed=3)
 
-    # def test_start(self):
-    #     race = Tournament(5, runner1, runner2, runner3)
-    #     race.start()
-    #     all_results = race.start
+    def test1_start(self):
+        self.race = Tournament(5, self.run1, self.run3)
+        res = self.race.start()
+        TournamentTest.all_results.update(res)
+        self.assertIs(str(TournamentTest.all_results[2]), "Nik")
+
+    def test2_start(self):
+        self.race = Tournament(5, self.run2, self.run3)
+        res = self.race.start()
+        TournamentTest.all_results.update(res)
+        self.assertIs(str(TournamentTest.all_results[2]), "Nik")
+
+    def test3_start(self):
+        self.race = Tournament(5, self.run1, self.run2, self.run3)
+        res = self.race.start()
+        TournamentTest.all_results.update(res)
+        self.assertIs(str(TournamentTest.all_results[3]), "Nik")
+
+    def tearDown(self):
+        print(TournamentTest.all_results)
 
     @classmethod
     def tearDownClass(cls):
         print(cls.all_results)
 
-    def test_start(self):
-        race = Tournament(5, runner1, runner2, runner3)
-        race.start()
-        all_results = race.start
+if __name__ == '__main__':
+    unittest.main()
+
