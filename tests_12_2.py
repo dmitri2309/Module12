@@ -1,3 +1,5 @@
+import unittest
+
 class Runner:
     def __init__(self, name, speed=5):
         self.name = name
@@ -6,11 +8,9 @@ class Runner:
 
     def run(self):
         self.distance += self.speed * 2
-        return self.distance
 
     def walk(self):
         self.distance += self.speed
-        return self.distance
 
     def __str__(self):
         return self.name
@@ -20,6 +20,9 @@ class Runner:
             return self.name == other
         elif isinstance(other, Runner):
             return self.name == other.name
+
+    def __repr__(self):
+        return self.name
 
 
 class Tournament:
@@ -38,11 +41,35 @@ class Tournament:
                     place += 1
                     self.participants.remove(participant)
         return finishers
-runner1 = Runner("Usain", speed=10)
-runner2 = Runner("Andry", speed=9)
-runner3 = Runner("Nik", speed=3)
+# runner1 = Runner("Usain", speed=10)
+# runner2 = Runner("Andry", speed=9)
+# runner3 = Runner("Nik", speed=3)
 
 
-race = Tournament(90, runner1, runner2, runner3)
-a = race.start()
-print(a)
+# race = Tournament(5, runner1, runner2, runner3)
+# print(race.start())
+
+class TournamentTest(unittest.TestCase):
+
+    @classmethod
+    def setUpClass(cls):
+        cls.all_results = {}
+
+    def setUp(self):
+        runner1 = Runner("Usain", speed=10)
+        runner2 = Runner("Andry", speed=9)
+        runner3 = Runner("Nik", speed=3)
+
+    # def test_start(self):
+    #     race = Tournament(5, runner1, runner2, runner3)
+    #     race.start()
+    #     all_results = race.start
+
+    @classmethod
+    def tearDownClass(cls):
+        print(cls.all_results)
+
+    def test_start(self):
+        race = Tournament(5, runner1, runner2, runner3)
+        race.start()
+        all_results = race.start
