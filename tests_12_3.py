@@ -43,21 +43,21 @@ class TournamentTest(unittest.TestCase):
         self.run3 = Runner("Nik", speed=3)
 
     @unittest.skipIf(is_frozen == True, "Тесты в этом кейсе заморожены")
-    def test1_start(self):
+    def test_start1(self):
         self.race = Tournament(5, self.run1, self.run3)
         res = self.race.start()
         TournamentTest.all_results.update(res)
         self.assertIs(str(TournamentTest.all_results[2]), "Nik")
 
     @unittest.skipIf(is_frozen == True, "Тесты в этом кейсе заморожены")
-    def test2_start(self):
+    def test_start2(self):
         self.race = Tournament(5, self.run2, self.run3)
         res = self.race.start()
         TournamentTest.all_results.update(res)
         self.assertIs(str(TournamentTest.all_results[2]), "Nik")
 
     @unittest.skipIf(is_frozen == True, "Тесты в этом кейсе заморожены")
-    def test3_start(self):
+    def test_start3(self):
         self.race = Tournament(5, self.run1, self.run2, self.run3)
         res = self.race.start()
         TournamentTest.all_results.update(res)
