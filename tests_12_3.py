@@ -1,67 +1,21 @@
 import unittest
-from module12_1 import *
+import module12_1
 from module12_2 import *
 
 
-# class Runner:
-#     def __init__(self, name, speed=5):
-#         self.name = name
-#         self.distance = 0
-#         self.speed = speed
-#
-#     def run(self):
-#         self.distance += self.speed * 2
-#         return self.distance
-
-#
-#     def walk(self):
-#         self.distance += self.speed
-#         return self.distance
-#
-#     def __str__(self):
-#         return self.name
-#
-#     def __eq__(self, other):
-#         if isinstance(other, str):
-#             return self.name == other
-#         elif isinstance(other, Runner):
-#             return self.name == other.name
-#
-#     def __repr__(self):
-#         return self.name
-#
-#
-# class Tournament:
-#     def __init__(self, distance, *participants):
-#         self.full_distance = distance
-#         self.participants = list(participants)
-#
-#     def start(self):
-#         finishers = {}
-#         place = 1
-#         while self.participants:
-#             for participant in self.participants:
-#                 participant.run()
-#                 if participant.distance >= self.full_distance:
-#                     finishers[place] = participant
-#                     place += 1
-#                     self.participants.remove(participant)
-#         return finishers
-
 class RunnerTest(unittest.TestCase):
-
     is_frozen = False
 
     @unittest.skipIf(is_frozen == True, 'Тесты в этом кейсе заморожены')
     def test_walk(self):
-        walking = Runner('Peter')
+        walking = module12_1.Runner('Peter')
         for i in range(9):
             walking.walk()
         self.assertEqual(walking.walk(), 50)
 
     @unittest.skipIf(is_frozen == True, 'Тесты в этом кейсе заморожены')
     def test_run(self):
-        running = Runner('Peter')
+        running = module12_1.Runner('Peter')
         for i in range(9):
             running.run()
         self.assertEqual(running.run(), 100)
