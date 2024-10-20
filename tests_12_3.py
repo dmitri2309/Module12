@@ -11,9 +11,12 @@ from module12_2 import *
 #
 #     def run(self):
 #         self.distance += self.speed * 2
+#         return self.distance
+
 #
 #     def walk(self):
 #         self.distance += self.speed
+#         return self.distance
 #
 #     def __str__(self):
 #         return self.name
@@ -45,8 +48,8 @@ from module12_2 import *
 #                     self.participants.remove(participant)
 #         return finishers
 
-
 class RunnerTest(unittest.TestCase):
+
     is_frozen = False
 
     @unittest.skipIf(is_frozen == True, 'Тесты в этом кейсе заморожены')
@@ -56,14 +59,14 @@ class RunnerTest(unittest.TestCase):
             walking.walk()
         self.assertEqual(walking.walk(), 50)
 
-    @unittest.skipIf(is_frozen == True, "Тесты в этом кейсе заморожены")
+    @unittest.skipIf(is_frozen == True, 'Тесты в этом кейсе заморожены')
     def test_run(self):
         running = Runner('Peter')
         for i in range(9):
             running.run()
         self.assertEqual(running.run(), 100)
 
-    @unittest.skipIf(is_frozen == True, "Тесты в этом кейсе заморожены")
+    @unittest.skipIf(is_frozen == True, 'Тесты в этом кейсе заморожены')
     def test_challange(self):
         walking = Runner('Peter')
         running = Runner('Peter')
