@@ -19,6 +19,10 @@ import unittest
 #         return self.name
 
 class RunnerTest(unittest.TestCase):
+
+    is_frozen = False
+
+    @unittest.skipIf(is_frozen == True, 'Тесты в этом кейсе заморожены')
     def test_walk(self):
         walking = Runner('Peter')
         for i in range(9):
