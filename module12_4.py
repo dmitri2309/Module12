@@ -1,4 +1,4 @@
-import logging
+#import logging
 
 class Runner:
     def __init__(self, name, speed=5):
@@ -14,9 +14,11 @@ class Runner:
 
     def run(self):
         self.distance += self.speed * 2
+        return self.distance
 
     def walk(self):
         self.distance += self.speed
+        return self.distance
 
     def __str__(self):
         return self.name
@@ -50,12 +52,13 @@ class Tournament:
         return finishers
 
 first = Runner('Вося', 10)
-second = Runner('Илья', 5)
-third = Runner('Арсен', 10)
+second = Runner(1, 5)
+# third = Runner('Арсен', 10)
+#
+# t = Tournament(101, first, second)
+# print(t.start())
 
-t = Tournament(101, first, second)
-print(t.start())
-
-if __name__ == '__main__':
-    logging.basicConfig(level=logging.INFO, filemode="w", filename="runner_test.log",
-                        format="%(asctime)s | %(levelname)s | %(message)s")
+# if __name__ == '__main__':
+#     unittest.main()
+    #logging.basicConfig(level=logging.INFO, filemode="w", filename="runner_test.log",
+                        #format="%(asctime)s | %(levelname)s | %(message)s")
