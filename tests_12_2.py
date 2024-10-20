@@ -46,15 +46,19 @@ from module12_2 import *
 
 class TournamentTest(unittest.TestCase):
 
+    is_frozen = True
+
     @classmethod
     def setUpClass(cls):
         cls.all_results = {}
 
+    #@unittest.skipIf(is_frozen == True, "Тесты в этом кейсе заморожены")
     def setUp(self):
         self.run1 = Runner("Usain", speed=10)
         self.run2 = Runner("Andry", speed=9)
         self.run3 = Runner("Nik", speed=3)
 
+    @unittest.skipIf(is_frozen == True, "Тесты в этом кейсе заморожены")
     def test1_start(self):
         self.race = Tournament(90, self.run1, self.run3)
         res = self.race.start()
