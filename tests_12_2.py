@@ -57,25 +57,28 @@ class TournamentTest(unittest.TestCase):
         self.run3 = Runner("Nik", speed=3)
 
     def test1_start(self):
-        self.race = Tournament(5, self.run1, self.run3)
+        self.race = Tournament(90, self.run1, self.run3)
         res = self.race.start()
         TournamentTest.all_results.update(res)
         self.assertIs(str(TournamentTest.all_results[2]), "Nik")
 
     def test2_start(self):
-        self.race = Tournament(5, self.run2, self.run3)
+        self.race = Tournament(90, self.run2, self.run3)
         res = self.race.start()
         TournamentTest.all_results.update(res)
         self.assertIs(str(TournamentTest.all_results[2]), "Nik")
 
     def test3_start(self):
-        self.race = Tournament(5, self.run1, self.run2, self.run3)
+        self.race = Tournament(90, self.run1, self.run2, self.run3)
         res = self.race.start()
         TournamentTest.all_results.update(res)
         self.assertIs(str(TournamentTest.all_results[3]), "Nik")
 
     def tearDown(self):
-        print(TournamentTest.all_results)
+        #dict_ = TournamentTest.all_results
+        for key, value in TournamentTest.all_results.items():
+            print(key, value)
+        # print(TournamentTest.all_results)
 
     @classmethod
     def tearDownClass(cls):
