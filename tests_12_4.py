@@ -2,14 +2,14 @@ import logging
 from module12_4 import *
 import unittest
 
-logging.basicConfig(level=logging.INFO, filemode="w", filename="runner_test.log", encoding="UTF-8",
-                        format="%(asctime)s | %(levelname)s | %(message)s")
+# logging.basicConfig(level=logging.INFO, filemode="w", filename="runner_test.log", encoding="UTF-8",
+#                         format="%(asctime)s | %(levelname)s | %(message)s")
 
 class RunnerTest(unittest.TestCase):
     is_frozen = False
-
     @unittest.skipIf(is_frozen == True, 'Тесты в этом кейсе заморожены')
     def test_walk(self):
+        first = Runner('Вася', -5)
         try:
             for i in range(10):
                 first.walk()
@@ -20,6 +20,7 @@ class RunnerTest(unittest.TestCase):
 
     @unittest.skipIf(is_frozen == True, 'Тесты в этом кейсе заморожены')
     def test_run(self):
+        second = Runner(1, 5)
         try:
             #running = Runner('Peter')
             for i in range(10):
@@ -39,6 +40,6 @@ class RunnerTest(unittest.TestCase):
         self.assertNotEqual((walking.walk(), running.run()), 100)
 
 
-# if __name__ == '__main__':
-#     logging.basicConfig(level=logging.INFO, filemode="a", filename="runner_test.log", encoding="UTF-8",
-#                         format="%(asctime)s | %(levelname)s | %(message)s")
+if __name__ == '__main__':
+    logging.basicConfig(level=logging.INFO, filemode="a", filename="runner_test.log", encoding="UTF-8",
+                        format="%(asctime)s | %(levelname)s | %(message)s")

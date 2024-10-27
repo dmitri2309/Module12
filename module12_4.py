@@ -1,4 +1,4 @@
-#import logging
+import logging
 
 class Runner:
     def __init__(self, name, speed=5):
@@ -11,6 +11,7 @@ class Runner:
             self.speed = speed
         else:
             raise ValueError(f'Скорость не может быть отрицательной, сейчас {speed}')
+        self.distance = 0
 
     def run(self):
         self.distance += self.speed * 2
@@ -51,14 +52,14 @@ class Tournament:
 
         return finishers
 
-first = Runner('Вося', -5)
-second = Runner(1, 5)
+# first = Runner('Вося', 5)
+# second = Runner(1, 5)
 # third = Runner('Арсен', 10)
 #
 # t = Tournament(101, first, second)
-# print(t.start())
+
 
 # if __name__ == '__main__':
-#     unittest.main()
-    #logging.basicConfig(level=logging.INFO, filemode="w", filename="runner_test.log",
-                        #format="%(asctime)s | %(levelname)s | %(message)s")
+# #     unittest.main()
+#     logging.basicConfig(level=logging.INFO, filemode="w", filename="runner_test.log",
+#                         format="%(asctime)s | %(levelname)s | %(message)s")
