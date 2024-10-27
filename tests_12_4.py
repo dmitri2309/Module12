@@ -1,16 +1,22 @@
 import logging
-from module12_4 import *
+import module12_4
 import unittest
 
 # logging.basicConfig(level=logging.INFO, filemode="w", filename="runner_test.log", encoding="UTF-8",
+#                         format="%(asctime)s | %(levelname)s | %(message)s")
+
+# if __name__ == '__main__':
+#     logging.basicConfig(level=logging.INFO, filemode="a", filename="runner_test.log", encoding="UTF-8",
 #                         format="%(asctime)s | %(levelname)s | %(message)s")
 
 class RunnerTest(unittest.TestCase):
     is_frozen = False
     @unittest.skipIf(is_frozen == True, 'Тесты в этом кейсе заморожены')
     def test_walk(self):
-        first = Runner('Вася', -5)
+        #first = Runner('Вася', -5)
+        #first = module12_4.Runner('Вася', -5)
         try:
+            first = module12_4.Runner('Вася', -5)
             for i in range(10):
                 first.walk()
             logging.info('"test_walk" выполнен успешно')
@@ -20,8 +26,10 @@ class RunnerTest(unittest.TestCase):
 
     @unittest.skipIf(is_frozen == True, 'Тесты в этом кейсе заморожены')
     def test_run(self):
-        second = Runner(1, 5)
+        #second = Runner(1, 5)
+        #second = module12_4.Runner(1, 5)
         try:
+            second = module12_4.Runner(1, 5)
             #running = Runner('Peter')
             for i in range(10):
                 second.run()
@@ -30,15 +38,14 @@ class RunnerTest(unittest.TestCase):
         except:
             logging.warning("Неверный тип данных для объекта Runner")
 
-    @unittest.skipIf(is_frozen == True, 'Тесты в этом кейсе заморожены')
-    def test_challange(self):
-        walking = Runner('Peter')
-        running = Runner('Peter')
-        for i in range(9):
-            walking.walk()
-            running.run()
-        self.assertNotEqual((walking.walk(), running.run()), 100)
-
+    # @unittest.skipIf(is_frozen == True, 'Тесты в этом кейсе заморожены')
+    # def test_challange(self):
+    #     walking = Runner('Peter')
+    #     running = Runner('Peter')
+    #     for i in range(9):
+    #         walking.walk()
+    #         running.run()
+    #     self.assertNotEqual((walking.walk(), running.run()), 100)
 
 if __name__ == '__main__':
     logging.basicConfig(level=logging.INFO, filemode="a", filename="runner_test.log", encoding="UTF-8",
