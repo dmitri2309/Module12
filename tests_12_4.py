@@ -14,9 +14,9 @@ class RunnerTest(unittest.TestCase):
     @unittest.skipIf(is_frozen == True, 'Тесты в этом кейсе заморожены')
     def test_walk(self):
         #first = Runner('Вася', -5)
-        first = module12_4.Runner('Вася', -5)
+        #first = module12_4.Runner('Вася', -5)
         try:
-            #first = module12_4.Runner('Вася', -5)
+            first = module12_4.Runner('Вася', -5)
             for i in range(10):
                 first.walk()
             logging.info('"test_walk" выполнен успешно')
@@ -27,9 +27,9 @@ class RunnerTest(unittest.TestCase):
     @unittest.skipIf(is_frozen == True, 'Тесты в этом кейсе заморожены')
     def test_run(self):
         #second = Runner(1, 5)
-        second = module12_4.Runner(1, 5)
+        #second = module12_4.Runner(1, 5)
         try:
-            #second = module12_4.Runner(1, 5)
+            second = module12_4.Runner(1, 5)
             #running = Runner('Peter')
             for i in range(10):
                 second.run()
